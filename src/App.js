@@ -26,7 +26,6 @@ function App() {
 
 	const [ title, setTitle ] = useState('');
 	const [ desc, setDesc ] = useState('');
-
   const [todos, setTodos] = useState([]);
 
 
@@ -72,7 +71,6 @@ function App() {
   };
   
   const handleDelete = (key) => {
-    
     db.collection("todolist").doc(key).delete()
   }
 
@@ -80,7 +78,7 @@ function App() {
 		<div>
 			<div className="flex justify-center">
 				<div className="px-10 pt-5 bg-gray-200  pb-5 w-9/12">
-					<h1 className="text-lg font-sans font-bold flex">Pekerjaan Rumah</h1>
+					<h1 className="text-lg font-sans font-bold flex">Forum Saham</h1>
 
 					<form onSubmit={(e) => handleSubmit(e)}>
 						{/* form buat title */}
