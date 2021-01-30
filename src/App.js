@@ -69,9 +69,25 @@ function App() {
     setDesc("")
     
   };
+
+  const handleUpdate = (key) => {
+    db.collection("todolist").doc(key).update({
+      title: title,
+      desc: desc
+    })
+
+    setTitle("")
+    setDesc("")
+  }
+
+  const updateButton = (key, title, desc ) => {
+    setTitle(title)
+    setDesc(desc)
+  }
   
   const handleDelete = (key) => {
     db.collection("todolist").doc(key).delete()
+    
   }
 
 	return (
@@ -124,6 +140,14 @@ function App() {
                   <button
                     onClick={() => handleDelete(pertodo.id)}
                     className="p-2 bg-red-500 text-yellow-100"> delete</button>
+                  
+                  <button
+                    onClick={() => updateButton(pertodo.id, pertodo.title, pertodo.desc)}
+                    className="p-2 bg-green-500 text-yellow-100 ml-3"> Update</button>
+
+                  <button
+                    onClick={() => handleUpdate(pertodo.id)}
+                    className="p-2 bg-yellow-500 text-yellow-100 ml-3"> Update to Firebase</button>
 								</div>
 							);
 						})}
