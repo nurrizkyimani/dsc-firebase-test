@@ -29,16 +29,6 @@ function App() {
   const [todos, setTodos] = useState([]);
 
 
-  const test = () => {
-    db
-    .collection("notes")
-    .add({
-          title: "Working 222222222",
-          body: "This is to check the Integration is working",
-        })
-  }
-  
-  // test()
 
   const fetchtododata = () => {
     db.collection("todolist")
@@ -144,7 +134,7 @@ function App() {
                   <button
                     onClick={() => updateButton(pertodo.id, pertodo.title, pertodo.desc)}
                     className="p-2 bg-green-500 text-yellow-100 ml-3"> Update</button>
-
+                  
                   <button
                     onClick={() => handleUpdate(pertodo.id)}
                     className="p-2 bg-yellow-500 text-yellow-100 ml-3"> Update to Firebase</button>
